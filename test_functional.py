@@ -7,4 +7,4 @@ class TestFunctional(unittest.TestCase):
         scores = prepare_data_and_train_models()
 
         for score in scores:
-            self.assertGreaterEqual(score, 70)
+            self.assertGreaterEqual(score, 50)
