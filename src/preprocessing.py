@@ -5,12 +5,14 @@ import pandas as pd
 def add_derived_title(df):
     titles = df['Name'].str.extract(' ([A-Za-z]+)\.', expand=False)
 
-    titles = titles.replace(['Lady', 'Countess', 'Capt', 'Col',
-                             'Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona'], 'Rare')
+    titles = titles.replace([
+        'Lady', 'Countess', 'Capt', 'Col', 'Don', 'Dr', 'Major', 'Rev', 'Sir',
+        'Jonkheer', 'Dona'
+    ], 'Rare')
     titles = titles.replace(['Ms', 'Mlle'], 'Miss')
     titles = titles.replace(['Mme'], 'Mrs')
 
-    df['Title'] = titles
+    df['Totle'] = titles
 
     return df
 
@@ -49,10 +51,16 @@ def add_categorical_columns(df):
     df['FareBand'] = categorize_column(df['Fare'], num_bins=4)
     df['Sex'] = df['Sex'].map({'female': 1, 'male': 0}).astype(int)
     df['Embarked'] = df['Embarked'].map({'S': 0, 'C': 1, 'Q': 2}).astype(int)
-    df['Title'] = df['Title'].map(
-        {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}).fillna(0)
+    df['Title'] = df['Title'].map({
+        "Mr": 1,
+        "Miss": 2,
+        "Mrs": 3,
+        "Master": 4,
+        "Rare": 5
+    }).fillna(0)
 
     return df
+
 
 def train_model(ModelClass, X_train, Y_train, **kwargs):
     model = ModelClass(**kwargs)

@@ -18,7 +18,7 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install Dependencies
           command: |
             python3 -m venv .venv
             source .venv/bin/activate
@@ -30,12 +30,12 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
           
       - run:
-          name: run tests
+          name: Run Tests
           command: |
             source .venv/bin/activate
             nosetests
       - run:
-          name: run model training code
+          name: Run Model Training code
           command: |
             source .venv/bin/activate
             python src/train.py
