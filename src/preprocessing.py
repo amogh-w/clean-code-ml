@@ -12,7 +12,7 @@ def add_derived_title(df):
     titles = titles.replace(['Ms', 'Mlle'], 'Miss')
     titles = titles.replace(['Mme'], 'Mrs')
 
-    df['Totle'] = titles
+    df['Title'] = titles
 
     return df
 
