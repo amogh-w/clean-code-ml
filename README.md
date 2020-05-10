@@ -1,3 +1,9 @@
+## My Pipeline Badge
+
+[![amogh-w](https://circleci.com/gh/amogh-w/clean-code-ml.svg?style=svg)](https://circleci.com/gh/amogh-w/clean-code-ml)
+
+---
+
 # clean-code-ml
 
 Now available as a free tutorial series: https://bit.ly/2yGDyqT 😎
